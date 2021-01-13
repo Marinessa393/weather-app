@@ -42,10 +42,12 @@ export default class MagicWeather {
     const { input, btn } = this.refs;
     input.addEventListener("keyup", (e) => {
       if (e.key === "Enter") this.getFetch(input.value);
+      input.value = "";
     });
 
     btn.addEventListener("click", () => {
       this.getFetch(input.value);
+      input.value = "";
     });
   }
 }
