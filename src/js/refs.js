@@ -10,4 +10,5 @@ export default {
   input: document.querySelector(".search-bar"),
   btn: document.querySelector(".search-btn"),
   weather: document.querySelector(".weather"),
+  container: document.querySelector(".container"),
 };

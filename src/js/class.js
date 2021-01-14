@@ -19,7 +19,7 @@ export default class MagicWeather {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`;
     return fetch(url)
       .then((r) => {
-        if (!r.ok) return alert("no data, try again");
+        if (!r.ok) return alert("No data, try again");
         return r.json();
       })
       .then((data) => {
@@ -39,14 +39,18 @@ export default class MagicWeather {
   }
 
   search() {
-    const { input, btn } = this.refs;
+    const { input, btn, container } = this.refs;
     input.addEventListener("keyup", (e) => {
-      if (e.key === "Enter") this.getFetch(input.value);
-      input.value = "";
+      if (e.key === "Enter") {
+        this.getFetch(input.value);
+        container.style.display = "none";
+        input.value = "";
+      }
     });
 
     btn.addEventListener("click", () => {
       this.getFetch(input.value);
+      container.style.display = "none";
       input.value = "";
     });
   }
